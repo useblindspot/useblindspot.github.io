@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Blindspot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=DM+Mono:wght@300;400;500&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#E9E5DC;color:#14120E;font-family:'Sora',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  header{border-bottom:1px solid #14120E;position:sticky;top:0;background:#E9E5DC}
+  .wrap{max-width:760px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+  .bar{display:flex;align-items:center;gap:14px;padding:14px 0}
+  .mark{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:17px;letter-spacing:-.01em;text-transform:uppercase}
+  .kicker{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#6B6558}
+  main{padding:48px 0 80px}
+  h1{font-family:'Archivo',sans-serif;font-stretch:125%;font-weight:800;font-size:clamp(34px,6vw,52px);line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;margin:0 0 8px}
+  h2{font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.01em;margin:38px 0 10px}
+  p,li{font-size:16px;color:#2A261E}
+  ul{padding-left:20px}
+  li{margin-bottom:7px}
+  a{color:#14120E;border-bottom:1px solid #C0B9A8;text-decoration:none}
+  a:hover{color:#8A6A00;border-bottom-color:#E0B400}
+  .box{border:1px solid #14120E;padding:18px 20px;margin:26px 0;background:rgba(255,255,255,.35)}
+  .box p{margin:0}
+  footer{border-top:1px solid #C0B9A8;padding:22px 0;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#6B6558}
+  footer a{border:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="none" stroke="#14120E" stroke-width="1.2"></circle><circle cx="13" cy="13" r="7.5" fill="none" stroke="#14120E" stroke-width="1.2"></circle><circle cx="16.5" cy="11" r="3.6" fill="#E0B400"></circle></svg>
+    <div>
+      <div class="mark">Blindspot</div>
+      <div class="kicker">Behavioural bias intervention</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="kicker">Fig. 01 — Privacy</div>
+  <h1>Privacy</h1>
+
+  <div class="box">
+    <p><strong>Short version:</strong> everything you write stays on your device. Nothing you type is ever sent anywhere. If you tick the optional box, six numeric scores are shared anonymously — nothing else. There are no accounts, no cookies, and no trackers.</p>
+  </div>
+
+  <h2>What Blindspot stores</h2>
+  <p>Your bias profile and your chosen mode are saved in your browser's <strong>local storage</strong> — a small amount of space on your own device that only this site can read. Specifically:</p>
+  <ul>
+    <li>Your six bias scores from the assessment, per mode</li>
+    <li>The date you completed it</li>
+    <li>Which mode you last used</li>
+  </ul>
+  <p>This never leaves your device. Clearing your browser data deletes it permanently, and there is no copy anywhere else.</p>
+
+  <h2>What Blindspot never stores</h2>
+  <ul>
+    <li>Anything you type into the decision box — it is analysed in memory in your browser and discarded when you leave the page</li>
+    <li>Your name, email, or any identifying detail</li>
+    <li>Your IP address</li>
+    <li>Any record of the decisions, trades, or positions you describe</li>
+  </ul>
+
+  <h2>What is shared, if you opt in</h2>
+  <p>There is an unticked checkbox on the check screen. If you tick it, then when you answer the follow-up question after your results, exactly four things are sent:</p>
+  <ul>
+    <li>Which mode you were in — trading or everyday</li>
+    <li>Your six bias scores, as numbers from 0 to 9</li>
+    <li>Your experience level, if you chose to give one</li>
+    <li>Your answer to "are you still going ahead?" — unchanged, modifying, or not doing it</li>
+  </ul>
+  <p>That is the complete list. <strong>Nothing you type is included</strong> — not the decision you described, not the phrases the tool highlighted, not any part of your text. No name, no email, no IP address, no device identifier, no session ID.</p>
+  <p>The purpose is to find out whether the six biases cluster differently between modes and experience levels, and whether reading a result changes what people do. Results will be written up publicly with the sample size and limitations stated.</p>
+  <p>Because nothing sent is linked to you in any way, the data is genuinely anonymous. That also means there is no way to find your row and delete it later — there is no identifier to search by. If that bothers you, leave the box unticked. The tool works exactly the same either way.</p>
+
+  <h2>Third parties</h2>
+  <p>Two, both unavoidable for a site of this kind:</p>
+  <ul>
+    <li><strong>Google Fonts</strong> serves the typefaces. Google receives a request from your browser when the page loads. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
+    <li><strong>GitHub Pages</strong> hosts the site and keeps standard server logs. See <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement">GitHub's privacy statement</a>.</li>
+    <li><strong>Google Apps Script</strong> receives the anonymous scores described above, and only if you opt in. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
+  </ul>
+  <p>Neither is used to identify you, and neither receives anything you write.</p>
+
+  <h2>Is this a medical or psychological assessment?</h2>
+  <p>No. Blindspot is not a validated psychometric instrument. It detects patterns in the language you use and reflects them back as a prompt for you to think harder. It has not been validated against any established measure, and its scores should not be treated as a diagnosis of anything. It is also not financial advice.</p>
+
+  <h2>Changes</h2>
+  <p>Sharing is opt-in, off by default, and limited to the four items listed above. If that ever changes, this page will be updated before the change ships. What you write will never be transmitted.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about any of this: <a href="https://github.com/jadenmachado2009/blindspot-v2/issues">open an issue on GitHub</a>.</p>
+
+</main>
+
+<footer class="wrap">
+  <a href="index.html">← Back to Blindspot</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a>
+</footer>
+
+</body>
+</html>

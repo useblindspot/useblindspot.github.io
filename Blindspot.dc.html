@@ -87,7 +87,7 @@ button:focus-visible{outline:2px solid #E0B400;outline-offset:2px}
         <p style="font-family:'Sora',sans-serif;font-weight:300;font-size:clamp(15px,1.5vw,18px);line-height:1.6;color:#3A362C;margin:0;max-width:52ch;text-wrap:pretty">{{ heroP }}</p>
         <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
           <button onClick="{{ startAssessment }}" onMouseEnter="{{ spike }}" style="font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;background:#14120E;color:#E9E5DC;border:1px solid #14120E;padding:17px 30px;cursor:pointer;transition:background .16s,color .16s,transform .16s" style-hover="background:#E0B400;color:#14120E;transform:translate(-2px,-2px)" style-active="transform:translate(0,0)">Build my bias fingerprint →</button>
-          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6558">10 QUESTIONS · ~3 MIN · STAYS IN YOUR BROWSER</span>
+          <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6558">10 QUESTIONS · ~3 MIN · YOUR WRITING NEVER LEAVES YOUR BROWSER</span>
         </div>
       </div>
     </div>
@@ -106,7 +106,7 @@ button:focus-visible{outline:2px solid #E0B400;outline-offset:2px}
 
     <div style="margin:clamp(34px,5vw,64px) 0 clamp(40px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,3vw,40px);border-top:1px solid #C0B9A8;padding-top:22px">
       <div style="font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:#6B6558;text-transform:uppercase">Method &amp; provenance</div>
-      <p style="font-family:'Sora',sans-serif;font-weight:300;font-size:13px;line-height:1.7;color:#6B6558;margin:0;grid-column:span 2;max-width:80ch;text-wrap:pretty">Grounded in established behavioural economics: Kahneman &amp; Tversky (prospect theory), Thaler (mental accounting, sunk cost, defaults), Cialdini (social proof), Samuelson &amp; Zeckhauser (status quo bias), Shiller (narrative economics), Odean (retail overconfidence). Blindspot doesn't tell you what to do — it makes the bias visible so you can decide consciously. Not financial or professional advice. All data stays in your browser.</p>
+      <p style="font-family:'Sora',sans-serif;font-weight:300;font-size:13px;line-height:1.7;color:#6B6558;margin:0;grid-column:span 2;max-width:80ch;text-wrap:pretty">Grounded in established behavioural economics: Kahneman &amp; Tversky (prospect theory), Thaler (mental accounting, sunk cost, defaults), Cialdini (social proof), Samuelson &amp; Zeckhauser (status quo bias), Shiller (narrative economics), Odean (retail overconfidence). Blindspot doesn't tell you what to do — it makes the bias visible so you can decide consciously. Not financial or professional advice. Your writing never leaves your browser.</p>
     </div>
   </section>
   </sc-if>
@@ -244,6 +244,21 @@ button:focus-visible{outline:2px solid #E0B400;outline-offset:2px}
             <button onClick="{{ c.fill }}" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;background:none;border:1px solid #C0B9A8;color:#3A362C;padding:7px 12px;cursor:pointer;transition:.15s" style-hover="border-color:#14120E;background:#14120E;color:#E9E5DC">{{ c.label }}</button>
           </sc-for>
         </div>
+        <div style="border:1px solid #C0B9A8;background:#E4E0D6;padding:14px 16px;margin-top:18px;display:flex;gap:18px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap">
+          <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;max-width:52ch">
+            <input type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" style="margin:2px 0 0;width:15px;height:15px;accent-color:#8A6A00;cursor:pointer;flex:0 0 auto">
+            <span style="display:flex;flex-direction:column;gap:5px">
+              <span style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;color:#14120E;line-height:1.4">Share my anonymous results to help improve this tool</span>
+              <span style="font-family:'Sora',sans-serif;font-weight:300;font-size:11.5px;line-height:1.6;color:#6B6558;text-wrap:pretty">Sends your six bias scores, your mode, and your answer to one follow-up question. No text you write, no name, no IP address. Nothing you type is ever transmitted.</span>
+            </span>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:5px">
+            <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6B6558;text-transform:uppercase">Experience <span style="text-transform:none;letter-spacing:.04em">(optional)</span></span>
+            <select value="{{ experience }}" onChange="{{ onExperience }}" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em;background:#F2EFE7;border:1px solid #C0B9A8;color:#14120E;padding:7px 9px;cursor:pointer">
+              <sc-for list="{{ experienceOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
+            </select>
+          </label>
+        </div>
         <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:18px">
           <button onClick="{{ runCheck }}" style="font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;background:#14120E;color:#E9E5DC;border:1px solid #14120E;padding:17px 30px;cursor:pointer;transition:.16s" style-hover="background:#E0B400;color:#14120E;transform:translate(-2px,-2px)" style-active="transform:translate(0,0)">Check this decision</button>
           <sc-if value="{{ hasNotice }}" hint-placeholder-val="{{ false }}">
@@ -308,6 +323,20 @@ button:focus-visible{outline:2px solid #E0B400;outline-offset:2px}
       <sc-if value="{{ hasStanding }}" hint-placeholder-val="{{ false }}">
         <p style="font-family:'DM Mono',monospace;font-size:11px;line-height:1.6;letter-spacing:.04em;color:#6B6558;margin:0 0 18px">{{ standingText }}</p>
       </sc-if>
+      <div style="border:1px solid #14120E;background:#E4E0D6;padding:clamp(18px,2.4vw,26px);margin-bottom:18px">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;color:#6B6558;text-transform:uppercase;margin-bottom:10px">Fig. 06 — One follow-up</div>
+        <h3 style="font-family:'Archivo',sans-serif;font-stretch:118%;font-weight:700;font-size:clamp(18px,2.2vw,26px);letter-spacing:-.02em;margin:0;text-transform:uppercase;line-height:1.1">Having read this, are you still going ahead?</h3>
+        <sc-if value="{{ followUpOpen }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+            <sc-for list="{{ followUpOptions }}" as="f" hint-placeholder-count="3">
+              <button onClick="{{ f.pick }}" style="font-family:'Archivo',sans-serif;font-stretch:112%;font-weight:700;font-size:13px;letter-spacing:.02em;text-transform:uppercase;background:none;border:1px solid #14120E;color:#14120E;padding:13px 20px;cursor:pointer;transition:.16s" style-hover="background:#14120E;color:#E9E5DC;transform:translate(-2px,-2px)" style-active="transform:translate(0,0)">{{ f.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{ followUpDone }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:#8A6A00;text-transform:uppercase;margin-top:16px;animation:bsUp .3s both">Recorded — thanks</div>
+        </sc-if>
+      </div>
       <div style="border-left:3px solid #E0B400;background:#E4E0D6;padding:16px 20px;font-family:'Sora',sans-serif;font-weight:300;font-size:13.5px;line-height:1.7;color:#3A362C;max-width:80ch"><b style="font-weight:600">Blindspot doesn't tell you what to do.</b> It makes the bias visible so the decision is conscious instead of automatic. If you can answer the questions above and still want to go ahead — that's a decision, not a reflex. Not financial or professional advice.</div>
     </div>
     </sc-if>
@@ -318,7 +347,7 @@ button:focus-visible{outline:2px solid #E0B400;outline-offset:2px}
 
   <footer style="border-top:1px solid #14120E;margin-top:auto">
     <div style="max-width:1180px;margin:0 auto;padding:22px clamp(16px,4vw,40px) 40px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6558;text-transform:uppercase;max-width:64ch;line-height:1.7">Blindspot · Behavioural bias intervention tool · For education and self-reflection only — not financial or professional advice. Your data never leaves your browser.</span>
+      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6B6558;text-transform:uppercase;max-width:64ch;line-height:1.7">Blindspot · Behavioural bias intervention tool · For education and self-reflection only — not financial or professional advice. Your writing never leaves your browser.</span>
       <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;gap:14px"><a href="terms.html">Terms of use</a><a href="privacy.html">Privacy policy</a></span>
     </div>
   </footer>
@@ -330,7 +359,7 @@ const INK = "#14120E", MUTED = "#6B6558", RULE = "#C0B9A8", AMBER = "#E0B400", A
 const LVL = { high: "#C4331D", mod: "#A87A00", low: "#2F6B4F" };
 
 class Component extends DCLogic {
-  state = { mode: "trading", screen: "home", qIndex: 0, answers: [], profile: null, text: "", res: null, notice: "", M: null, sound: true, hover: null, live: null };
+  state = { mode: "trading", screen: "home", qIndex: 0, answers: [], profile: null, text: "", res: null, notice: "", M: null, sound: true, hover: null, live: null, consent: false, experience: "", followUp: null };
 
   componentDidMount() {
     this.boot();
@@ -360,7 +389,7 @@ class Component extends DCLogic {
     if (!window.BLINDSPOT_MODES) { this._t = setTimeout(() => this.boot(), 40); return; }
     this.MODES = window.BLINDSPOT_MODES;
     const mode = this.get("blindspot_mode") || "trading";
-    this.setState({ M: this.MODES[mode], mode, profile: this.loadProfile(mode) });
+    this.setState({ M: this.MODES[mode], mode, profile: this.loadProfile(mode), consent: this.get("blindspot_consent") === "1" });
   }
   traceRef = el => { this.trace = el; };
   backdropRef = el => { this.backdrop = el; };
@@ -462,8 +491,28 @@ class Component extends DCLogic {
     if (!text) { this.beep(180, 0.1, "sawtooth"); return this.setState({ res: null, notice: `Describe the ${M.copy.subject} first — what you're doing and why.` }); }
     if (text.split(/\s+/).length < 8) { this.beep(180, 0.1, "sawtooth"); return this.setState({ res: null, notice: "Too brief to read anything from. Add the why — your reasoning is where the biases hide." }); }
     this.beep(980, 0.09, "triangle");
-    this.setState({ notice: "", res: { text, data: this.analyze(text) } });
+    this.setState({ notice: "", res: { text, data: this.analyze(text) }, followUp: null });
   };
+
+  ENDPOINT = "https://script.google.com/macros/s/AKfycbx8jA5JGq7msVHIMGvcHVDkyBJZ5hTtEE1NwR-grrMbIVpxXQhNOr8Mqh8_MWFsjgs/exec";
+  answerFollowUp(answer) {
+    if (this.state.followUp) return;
+    this.beep(760, 0.05);
+    this.setState({ followUp: answer });
+    if (!this.state.consent) return;
+    try {
+      fetch(this.ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          mode: this.state.mode,
+          experience: this.state.experience || "",
+          scores: this.state.profile ? this.state.profile.scores : null,
+          followUp: answer
+        })
+      }).catch(() => {});
+    } catch (e) {}
+  }
   merge(ranges) {
     return ranges.slice().sort((a, b) => a[0] - b[0]).reduce((acc, r) => {
       if (acc.length && r[0] <= acc[acc.length - 1][1]) acc[acc.length - 1][1] = Math.max(acc[acc.length - 1][1], r[1]);
@@ -619,6 +668,13 @@ class Component extends DCLogic {
       }),
       exampleChips: M.exampleLabels.map((label, i) => ({ key: i, label, fill: () => { this.beep(600, 0.04); this.setState({ text: M.examples[i], live: this.analyze(M.examples[i]) }, () => this.fit()); } })),
       runCheck: this.runCheck,
+      consent: S.consent,
+      onConsent: e => { const consent = e.target.checked; this.set("blindspot_consent", consent ? "1" : "0"); this.setState({ consent }); },
+      experience: S.experience,
+      onExperience: e => this.setState({ experience: e.target.value }),
+      experienceOptions: [["", "Prefer not to say"], ["under_6_months", "Under 6 months"], ["6_months_2_years", "6 months – 2 years"], ["2_5_years", "2–5 years"], ["5_plus_years", "5+ years"]].map(([value, label]) => ({ key: value || "none", value, label })),
+      followUpOpen: !S.followUp, followUpDone: !!S.followUp,
+      followUpOptions: [["unchanged", "Yes, unchanged"], ["modifying", "Modifying it"], ["abandoned", "No, not doing it"]].map(([value, label]) => ({ key: value, label, pick: () => this.answerFollowUp(value) })),
       profileStatus: S.profile ? `Weighted to your ${M.label.toLowerCase()} fingerprint` : "Generic read — no profile yet",
       hasNotice: !!S.notice, notice: S.notice,
       hasEcho: !!(S.res && echoParts.length), echoParts,
