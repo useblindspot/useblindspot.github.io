@@ -6,7 +6,9 @@ I got into trading and needed a strategy. Mine was: check eToro's worst performe
 
 Looking back, the rule itself leaned on assumptions I hadn't examined — that yesterday's price told me what the stock was worth, that size meant safety, that a fall implied a bounce.
 
-Early on it worked. I had a winning streak — best was MercadoLibre on 8 May, about 12% — though I can't rule out that it was luck. What I do know is that in that stretch I was actually following my own rules.
+A typical setup looked like MercadoLibre on 8 May — down around 12% on the day, big enough company, nothing in the news that would actually sink it.
+
+Early on it worked. I had a winning streak, though I can't rule out that it was luck. What I do know is that in that stretch I was actually following my own rules.
 
 Then I stopped. I started taking trades that didn't meet my criteria, and the losses followed. The rules hadn't changed. I had.
 
