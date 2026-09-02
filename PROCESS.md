@@ -42,6 +42,18 @@ It's a prompt to think, not a diagnosis. It doesn't improve returns and I don't 
 
 To make any accuracy claim I'd need to validate it against a real instrument, test whether results are stable, and run a control — does writing your reasoning down without any scoring do the same thing? That last one might show the scoring adds nothing.
 
+## A flaw I found in my own scoring
+
+The six scores aren't comparable to each other, and I only noticed after looking at the first responses.
+
+Each bias is scored as `round(9 × your total ÷ the highest total possible)`. But the biases aren't covered evenly by the questions. In everyday mode, Present Bias can be scored by 7 questions with a maximum of 14; Anchoring by only 3, with a maximum of 7.
+
+That doesn't make anchoring higher on average — it makes it **coarser**. With few questions there are fewer reachable values, so scores land near the ends. With many questions they gather in the middle. My first responses show exactly that: anchoring came out 9, 9 and 8, while sunk cost came out 0, 0 and 3.
+
+So "anchoring is everyone's biggest bias" is a property of my question set, not of the people answering it. Comparing one person's scores across biases is not meaningful until the questions are evenly balanced. Comparing the same bias between people is fine.
+
+I'd rather leave this written down than quietly fix it and present the numbers as if they'd always been sound.
+
 ## Data
 
 Sharing is opt-in and off by default. Six scores, mode, experience level, and one follow-up answer. Nothing you type is ever sent.
